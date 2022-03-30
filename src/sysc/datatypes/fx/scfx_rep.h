@@ -176,9 +176,9 @@ public:
 
     ~scfx_rep();
 
-
-    void* operator new( std::size_t );
-    void  operator delete( void*, std::size_t );
+//TODO Pragmatic solution for thread safety
+    //void* operator new( std::size_t );
+    //void  operator delete( void*, std::size_t );
 
 
     void from_string( const char*, int );

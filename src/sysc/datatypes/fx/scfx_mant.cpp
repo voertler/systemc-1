@@ -77,7 +77,8 @@ next_pow2_index( std::size_t size )
     return index;
 }
 
-static word_list* free_words[32] = { 0 };
+//TODO pragmatic solution for thread safety
+//static word_list* free_words[32] = { 0 };
     
 word*
 scfx_mant::alloc_word( std::size_t size )
@@ -87,7 +88,10 @@ scfx_mant::alloc_word( std::size_t size )
     unsigned slot_index = next_pow2_index( size );
     unsigned alloc_size = ( UINT64_ONE << slot_index );
 
-    word_list*& slot = free_words[slot_index];
+    return  (word*)new word_list[alloc_size*ALLOC_SIZE];
+
+/* TODO pragmatic solution for thread safety
+    word_list* slot = free_words[slot_index];
 
     if( ! slot )
     {
@@ -103,6 +107,7 @@ scfx_mant::alloc_word( std::size_t size )
     word* result = (word*)slot;
     free_words[slot_index] = slot[0].m_next_p;
     return result;
+    */
 }
 
 void
@@ -110,11 +115,15 @@ scfx_mant::free_word( word* array, std::size_t size )
 {
     if( array && size )
     {
+    	delete [] array;
+
+/* TODO pragmatic solution for thread safety
         int slot_index = next_pow2_index( size );
 	word_list* wl_p = (word_list*)array;
 
 	wl_p->m_next_p = free_words[slot_index];
 	free_words[slot_index] = wl_p;
+	*/
     }
 }
 

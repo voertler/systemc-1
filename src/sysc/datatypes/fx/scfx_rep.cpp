@@ -369,6 +369,9 @@ union scfx_rep_node
 };
 
 
+//TODO pragmatic solution for thread safety
+/*
+
 static scfx_rep_node* list = 0;
 
 
@@ -408,7 +411,7 @@ void scfx_rep::operator delete( void* ptr, std::size_t size )
     list = node;
 }
 
-
+*/
 // ----------------------------------------------------------------------------
 //  METHOD : from_string
 //
@@ -1260,7 +1263,7 @@ const char*
 scfx_rep::to_string( sc_numrep numrep, int w_prefix,
 		     sc_fmt fmt, const scfx_params* params ) const
 {
-    static scfx_string s;
+    scfx_string s;
 
     s.clear();
 

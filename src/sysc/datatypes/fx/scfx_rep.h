@@ -304,6 +304,8 @@ private:
     int       m_lsw;      // index of least significant non-zero word.
     bool      m_r_flag;   // true if rounding occurred.
 
+    mutable scfx_string s;
+
 };
 
 

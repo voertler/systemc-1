@@ -1263,7 +1263,8 @@ const char*
 scfx_rep::to_string( sc_numrep numrep, int w_prefix,
 		     sc_fmt fmt, const scfx_params* params ) const
 {
-    scfx_string s;
+	//TODO not thread safe
+    //static scfx_string s;
 
     s.clear();
 

@@ -21,7 +21,7 @@ std::size_t run_workload()
             sc_dt::sc_fxcast_switch cast_switch;
             sc_dt::sc_fix tmp4(cast_switch);
             sc_dt::sc_fix tmp5(sc_dt::sc_fxtype_params(16, 8));
-            total += varth.to_string().size() + tmp1.to_string().size() + tmp2.to_string().size() + tmp3.to_string().size() + tmp4.to_string().size() + tmp5.to_string().size();
+            total += varth.to_uint64() + tmp1.to_uint64() + tmp2.to_uint64() + tmp3.to_uint64() + tmp4.to_uint64() + tmp5.to_uint64();
         }
         combined_total += total;
     }
@@ -29,13 +29,13 @@ std::size_t run_workload()
     {
         std::size_t total = 0;
         for (int i = 0; i < NUMRUNS; ++i) {
-            sc_dt::sc_fix varm(1.25);
-            sc_dt::sc_fix tmp1("3.5");
+            sc_dt::sc_fix varm(2);
+            sc_dt::sc_fix tmp1("3");
             sc_dt::sc_int<8> base = 7;
             sc_dt::sc_fix tmp2(base);
             sc_dt::sc_uint<8> ubase = 9;
             sc_dt::sc_fix tmp3(ubase);
-            total += varm.to_string().size() + tmp1.to_string().size() + tmp2.to_string().size() + tmp3.to_string().size();
+            total += varm.to_uint64() + 3 * tmp1.to_uint64() + 5 * tmp2.to_uint64() + 7 * tmp3.to_uint64();
         }
         combined_total += total;
     }

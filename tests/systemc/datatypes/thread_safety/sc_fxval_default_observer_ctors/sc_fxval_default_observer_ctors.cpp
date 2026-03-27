@@ -15,11 +15,11 @@ std::size_t run_workload()
         std::size_t total = 0;
         for (int i = 0; i < NUMRUNS; ++i) {
             sc_dt::sc_fxval varth;
-            sc_dt::sc_fxval tmp1(1.25);
-            sc_dt::sc_fxval tmp2("3.75");
+            sc_dt::sc_fxval tmp1(1);
+            sc_dt::sc_fxval tmp2("3");
             sc_dt::sc_int<8> base = 7;
             sc_dt::sc_fxval tmp3(base);
-            total += varth.to_string().size() + tmp1.to_string().size() + tmp2.to_string().size() + tmp3.to_string().size();
+            total += varth.to_uint64() + 3 * tmp1.to_uint64() + 5 * tmp2.to_uint64() + 7 * tmp3.to_uint64();
         }
         combined_total += total;
     }
@@ -28,11 +28,11 @@ std::size_t run_workload()
         std::size_t total = 0;
         for (int i = 0; i < NUMRUNS; ++i) {
             sc_dt::sc_fxval varm(2);
-            sc_dt::sc_fxval tmp1(2.5);
-            sc_dt::sc_fxval tmp2("4.5");
+            sc_dt::sc_fxval tmp1(4);
+            sc_dt::sc_fxval tmp2("5");
             sc_dt::sc_uint<8> base = 9;
             sc_dt::sc_fxval tmp3(base);
-            total += varm.to_string().size() + tmp1.to_string().size() + tmp2.to_string().size() + tmp3.to_string().size();
+            total += varm.to_uint64() + 3 * tmp1.to_uint64() + 5 * tmp2.to_uint64() + 7 * tmp3.to_uint64();
         }
         combined_total += total;
     }

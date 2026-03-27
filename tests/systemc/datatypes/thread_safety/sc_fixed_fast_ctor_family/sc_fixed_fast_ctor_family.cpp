@@ -17,8 +17,8 @@ std::size_t run_workload()
             sc_dt::sc_fixed_fast<16, 8> varth;
             sc_dt::sc_fxcast_switch cast_switch;
             sc_dt::sc_fixed_fast<16, 8> tmp1(cast_switch);
-            sc_dt::sc_fixed_fast<16, 8> tmp2(1.25);
-            total += varth.to_string().size() + tmp1.to_string().size() + tmp2.to_string().size();
+            sc_dt::sc_fixed_fast<16, 8> tmp2(1);
+            total += varth.to_uint64() + 3 * tmp1.to_uint64() + 5 * tmp2.to_uint64();
         }
         combined_total += total;
     }
@@ -29,8 +29,8 @@ std::size_t run_workload()
             sc_dt::sc_int<8> base = 7;
             sc_dt::sc_fixed_fast<16, 8> varm(base);
             sc_dt::sc_fxcast_switch cast_switch;
-            sc_dt::sc_fixed_fast<16, 8> tmp1(2.5, cast_switch);
-            total += varm.to_string().size() + tmp1.to_string().size();
+            sc_dt::sc_fixed_fast<16, 8> tmp1(2, cast_switch);
+            total += varm.to_uint64() + 3 * tmp1.to_uint64();
         }
         combined_total += total;
     }

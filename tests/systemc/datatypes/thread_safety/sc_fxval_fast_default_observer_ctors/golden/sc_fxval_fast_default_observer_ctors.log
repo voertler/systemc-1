@@ -1,0 +1,6 @@
+SystemC Simulation
+test sc_fxval_fast_default_observer_ctors started
+133308472
+132893460
+test sc_fxval_fast_default_observer_ctors finished
+double free or corruption (out)
